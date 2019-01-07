@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class NotesComponent implements OnInit {
   public allnotes: any = [];
-  public apiurl: any = "http://localhost:3001/notesaver/";
+  public apiurl: any = "http://localhost:3000/notesaver/";
   public model: any = {};
   public favourite:Boolean = false;
 

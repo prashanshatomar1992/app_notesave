@@ -12,7 +12,7 @@ var Note = require('./server/schema/note');
 var route = require('./server/controller/note.js');
 
 //port number
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 3000;
 
 //connect to mongodb
 mongoose.connect(config.MONOGO_DB_URL);
@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 app.use('/notesaver', route);
 
 
-app.listen(port, () => {
+app.listen(port, (err) => {
     console.log('NotesSaver server started at port: ' + port);
 });
 app.use('/app', apiRoutes)
