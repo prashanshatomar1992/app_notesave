@@ -7,7 +7,7 @@ var Note = require('../schema/note');
 
 //create note
 router.post('/addnote', (req, res, next) => {
-    console.log(req.body)
+    // console.log(req.body)
     var newNote = new Note({
         createdby: req.body.createdby,
         createdon: new Date(),
@@ -21,7 +21,6 @@ router.post('/addnote', (req, res, next) => {
             res.json('Note saved successfully.');
         }
     });
-    // res.send('Add notes here');
 });
 
 //get all notes
