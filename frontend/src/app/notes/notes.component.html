@@ -1,19 +1,21 @@
 <div class="container">
     <nav class="navbar navbar-expand-sm bg-dark text_clr">
-        <a class="navbar-brand" (click)="getAllNotes()">All</a>
-        <a class="navbar-brand" (click)="getFavNotes()">FAVOURITE</a>       
+        <a class="navbar-brand crsr" (click)="getAllNotes()">All</a>
+        <a class="navbar-brand crsr" (click)="getFavNotes()">FAVOURITE</a>       
       </nav>
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Created By</th>
-        <th>Note</th>
+        <th class="width_twenty">Created By</th>
+        <th class="width_thirty">Created On</th>
+        <th class="width_seventy">Note</th>
       </tr>
     </thead>
     <tbody class="table_scrl">     
       <tr *ngFor="let item of allnotes">
-        <td>{{item?.createdby}}</td>
-        <td>{{item?.note}} <span class="" *ngIf="!(item?.favourite) && favourite"><a href="" (click)="addToFav(item?._id)">Favourite </a></span>
+        <td class="width_twenty">{{item?.createdby}}</td>
+        <td class="width_thirty">{{item?.createdon |  date:'yyyy-MM-dd hh:mm:ss'}}</td>
+        <td class="width_seventy">{{item?.note}} <span class="" *ngIf="!(item?.favourite) && favourite"><a href="" (click)="addToFav(item?._id)">Favourite </a></span>
           <span class="" *ngIf="item?.favourite  && !favourite"><a href="" (click)="remToFav(item?._id)">Unfavourite</a></span>
         </td>
       </tr>

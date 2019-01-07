@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class NotesComponent implements OnInit {
   public allnotes: any = [];
-  public apiurl: any = "http://localhost:3001/notesaver/";
+  public apiurl: any = "http://localhost:3011/notesaver/";
   public model: any = {};
   public favourite:Boolean = false;
 
@@ -23,16 +23,10 @@ export class NotesComponent implements OnInit {
     this.http.get(this.apiurl + 'getallnotes')
       .subscribe(
         Response => {
-
-          // console.log(Object.keys(Response));        
-          // console.log(typeof(Response));            
-          // console.log(Response["_body"]);
           var data = Response.json();
-          console.log(data.payload)
-
-          console.log(Response.json())
+          // console.log(data.payload)
+          // console.log(Response.json())
           this.allnotes = data.payload;
-
 
         },
         err => {
@@ -40,9 +34,10 @@ export class NotesComponent implements OnInit {
         }
       )
   }
+  //saving notes
   saveNote(model) {
     // console.log('model');
-    console.log(model);
+    // console.log(model);
     // console.log('model');
     this.http.post(this.apiurl + 'addnote',model)
     .subscribe(
@@ -57,9 +52,9 @@ export class NotesComponent implements OnInit {
 
   }
   addToFav(id){
-    console.log('model')
-    console.log(id)
-    console.log('model')
+    // console.log('model')
+    // console.log(id)
+    // console.log('model')
     this.http.get(this.apiurl+'/addtofav/' + id)
     .subscribe(
       Response => {
@@ -73,9 +68,9 @@ export class NotesComponent implements OnInit {
   }
   //Remove from fav
   remToFav(id){
-    console.log('model')
-    console.log(id)
-    console.log('model')
+    // console.log('model')
+    // console.log(id)
+    // console.log('model')
     this.http.get(this.apiurl+'/removefav/' + id)
     .subscribe(
       Response => {
@@ -94,18 +89,15 @@ export class NotesComponent implements OnInit {
       .subscribe(
         Response => {
           var data = Response.json();
-          console.log(data.payload);
+          // console.log(data.payload);
           this.allnotes = [];
-          console.log(Response.json())
+          // console.log(Response.json())
           this.allnotes = data.payload;
-
-
         },
         err => {
           this.allnotes = [];
         }
-      )
-    
+      );    
   }
   ngOnInit() {
     this.getAllNotes();

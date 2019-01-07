@@ -12,7 +12,7 @@ var Note = require('./server/schema/note');
 var route = require('./server/controller/note.js');
 
 //port number
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 3011;
 
 //connect to mongodb
 mongoose.connect(config.MONOGO_DB_URL);

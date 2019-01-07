@@ -1,8 +1,13 @@
 .table_scrl {
 	height: 500px;
-    overflow-y: scroll;
-    width: 105%;
-    display: block;
+  overflow-y: scroll;
+  width: 366%;
+  display: block;
   }
   
 .text_clr{color: white;}
+.crsr{cursor: pointer;}
+.width_twenty{width: 20%;}
+.width_thirty{width: 30%;}
+.width_seventy{width: 70%;}
+.tr_row{width: 100%;}
