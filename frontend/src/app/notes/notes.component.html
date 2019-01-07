@@ -1,0 +1,39 @@
+<div class="container">
+    <nav class="navbar navbar-expand-sm bg-dark text_clr">
+        <a class="navbar-brand" (click)="getAllNotes()">All</a>
+        <a class="navbar-brand" (click)="getFavNotes()">FAVOURITE</a>       
+      </nav>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Created By</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody class="table_scrl">     
+      <tr *ngFor="let item of allnotes">
+        <td>{{item?.createdby}}</td>
+        <td>{{item?.note}} <span class="" *ngIf="!(item?.favourite) && favourite"><a href="" (click)="addToFav(item?._id)">Favourite </a></span>
+          <span class="" *ngIf="item?.favourite  && !favourite"><a href="" (click)="remToFav(item?._id)">Unfavourite</a></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bg-dark text_clr">
+    <form>
+      <div class = "form-group">
+         <label for = "createdby">Created By</label>
+         <input type = "text" class = "form-control" id = "createdby" required
+            [(ngModel)] = "model.createdby" name = "createdby">
+      </div>
+      
+      <div class = "form-group">
+         <label for = "note">Note</label>
+         <input type = "text" class = "form-control" id = "note"
+            [(ngModel)] = "model.note" name = "note">
+      </div>
+   </form>
+   <button (click)="saveNote(model)">save</button>
+   </div>
+  
+</div>

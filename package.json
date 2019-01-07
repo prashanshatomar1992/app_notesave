@@ -1,0 +1,26 @@
+{
+  "name": "notessaver",
+  "version": "1.0.0",
+  "description": "It is a MEAN app to create, read, update note to favourite or unfavoutrite.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prashanshatomar1992/NotesSaver.git"
+  },
+  "author": "Prashansha Tomar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prashanshatomar1992/NotesSaver/issues"
+  },
+  "homepage": "https://github.com/prashanshatomar1992/NotesSaver#readme",
+  "dependencies": {
+    "@angular/cli": "^7.1.4",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.2"
+  }
+}
