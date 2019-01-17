@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
+//socket
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = {url: 'http://localhost:8988', options:{}};
 
 @NgModule({
   declarations: [
@@ -14,6 +17,7 @@ import { NotesComponent } from './notes/notes.component';
   ],
   imports: [
     BrowserModule,
+    SocketIoModule.forRoot(config),
     FormsModule,
     HttpModule,
     RouterModule.forRoot([

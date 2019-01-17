@@ -5,6 +5,23 @@ import { Http, Headers } from '@angular/http';
 // import { map } from 'rxjs/operators';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { Injectable } from '@angular/core';
+import { Socket } from 'ngx-socket-io';
+// import 'rxjs/Rx';
+// import { map } from 'rxjs/operator/map';
+
+@Injectable()
+export class ChatService {
+  constructor(private socket: Socket){}
+  sendMessage(msg:any)
+  {
+    this.socket.emit("message",msg)
+  }
+  getMessage(msg:any){
+    return this.socket.fromEvent("message")//.map(data=>data.msg)
+  }
+}
+
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
