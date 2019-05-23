@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var cors = require('cors');
 var path = require('path');
+var fs = require('fs');
 
 var config = require('./config.json');
 var Note = require('./server/schema/note');
@@ -14,9 +15,19 @@ var route = require('./server/controller/note.js');
 //port number
 var port = process.env.PORT || 3000;
 
-//connect to mongodb
-mongoose.connect(config.MONOGO_DB_URL);
+//connect to mongodb -- without ssl
+// mongoose.connect(config.MONOGO_DB_URL);// "MONOGO_DB_URL" : "mongodb://localhost:27017/notesave_db"    
 
+
+//mongodb connection with ssl
+var mongooption = {
+    'server': {
+        'sslValidate': false,
+        'sslCert': fs.readFileSync(__dirname + '/js/mongodb.pem')
+
+    }
+}
+mongoose.connect(config.MONOGO_DB_URL + '?ssl=true', mongooption);
 //on mongodb connection error
 mongoose.connection.on('error', function (err) {
     console.log('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
